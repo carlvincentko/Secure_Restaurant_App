@@ -1,0 +1,54 @@
+<div class="page-center">
+    <h1>Account Recovery</h1>
+
+    <div id="recovery-verify">
+        <p>Enter your username, pick the recovery question, and provide the answer.</p>
+
+        <form id="verify-form" action="/auth/recovery_account/verify" method="POST" novalidate>
+            <label>Username
+                <input type="text" name="username" id="ra-username" required>
+            </label>
+            <br/>
+            <label>Recovery question
+                <select id="ra-question" name="question" required>
+                    <option value="">-- Select a question --</option>
+                    <option value="What is the name of a childhood friend that no one else would know?">What is the name of a childhood friend that no one else would know?</option>
+                    <option value="What is your favorite fictional location from a book or movie?">What is your favorite fictional location from a book or movie?</option>
+                    <option value="What is/was the name of your first pet?">What is/was the name of your first pet?</option>
+                </select>
+            </label>
+            <br/>
+            <label>Answer
+                <input type="text" id="ra-answer" name="answer" autocomplete="off" required>
+            </label>
+
+            <div style="margin-top:12px;">
+                <button type="submit" class="popup-button hov1">Verify</button>
+                <a href="/" class="popup-button link">Cancel</a>
+            </div>
+
+            <p id="ra-verify-msg" class="form-error" aria-live="polite"></p>
+        </form>
+    </div>
+
+    <div id="recovery-reset" style="display:none; margin-top:20px;">
+        <h3>Change Password</h3>
+        <p>You may now set a new password for this account.</p>
+        <form id="reset-form" action="/auth/recovery_account/reset" method="POST" novalidate>
+            <label>New Password
+                <input type="password" id="ra-new-password" name="new_password" required>
+            </label>
+            <br/>
+            <label>Confirm New Password
+                <input type="password" id="ra-confirm-password" name="confirm_password" required>
+            </label>
+            <div style="margin-top:12px;">
+                <button type="submit" class="popup-button hov1">Change Password</button>
+                <a href="/" class="popup-button link">Cancel</a>
+            </div>
+            <p id="ra-reset-msg" class="form-error" aria-live="polite"></p>
+        </form>
+    </div>
+</div>
+
+<script src="/js/recovery_account.js" defer></script>
